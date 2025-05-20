@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import "/node_modules/flag-icons/css/flag-icons.min.css";
+
 
 function App() {
 
@@ -14,6 +16,13 @@ function App() {
   }
 
   const results = selectedFilm.results;
+
+  let languages = {
+    en: "us",
+    ja: "jp",
+    hi: "in"
+
+  }
 
   return (
     <>
@@ -33,14 +42,14 @@ function App() {
       <main>
         <div className="container">
           <div className="row g-4">
-            {results?.map((result, index) => {
+            {results && results.map((result, index) => {
               return <div key={index} className="col-12 col-md-6 col-lg-4">
                 <div className="card">
                   <div className="card-body">
                     <div className="card-text">
                       <h4>Title : {result.title}</h4>
                       <h5>Original Title : {result.original_title}</h5>
-                      <p>Language : {result.original_language}</p>
+                      <p>Language : {result.original_language}<span className={`fi fi-${languages[result.original_language] || result.original_language}`} /></p>
                       <p>Rate : {result.vote_average}</p>
                     </div>
                   </div>
@@ -49,7 +58,7 @@ function App() {
             })}
           </div>
         </div>
-      </main>
+      </main >
     </>
   )
 }
