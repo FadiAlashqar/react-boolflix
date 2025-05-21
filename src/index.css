@@ -5,3 +5,8 @@ header {
 body {
   background-color: #282828;
 }
+
+.card-img-top img {
+  object-fit: cover;
+  width: inherit;
+}

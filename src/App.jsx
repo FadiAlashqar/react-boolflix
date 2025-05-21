@@ -20,7 +20,9 @@ function App() {
   let languages = {
     en: "us",
     ja: "jp",
-    hi: "in"
+    hi: "in",
+    zh: "cn",
+    ko: "kr"
 
   }
 
@@ -41,15 +43,18 @@ function App() {
       </header>
       <main>
         <div className="container">
-          <div className="row g-4">
+          <div className="row g-4 p-5">
             {results && results.map((result, index) => {
               return <div key={index} className="col-12 col-md-6 col-lg-4">
                 <div className="card">
+                  <div className="card-img-top">
+                    <img className="img-fluid" src={`https://image.tmdb.org/t/p/w300/${result.backdrop_path}`} alt="" />
+                  </div>
                   <div className="card-body">
                     <div className="card-text">
                       <h4>Title : {result.title}</h4>
                       <h5>Original Title : {result.original_title}</h5>
-                      <p>Language : {result.original_language}<span className={`fi fi-${languages[result.original_language] || result.original_language}`} /></p>
+                      <p>Language : {result.original_language} <span className={`fi fi-${languages[result.original_language] || result.original_language}`} /></p>
                       <p>Rate : {result.vote_average}</p>
                     </div>
                   </div>
