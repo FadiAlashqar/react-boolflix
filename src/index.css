@@ -1,5 +1,6 @@
 header {
   color: red;
+  font-weight: bolder;
 }
 
 body {
@@ -9,10 +10,30 @@ body {
 .card-img-top img {
   object-fit: cover;
   width: inherit;
+  height: 100%;
 }
 
 .card {
   color: white;
   background-color: black;
-  border: 3px solid black;
+  border: 3px solid white;
+}
+
+.img-section {
+  display: block;
+  height: 300px;
+}
+
+.info-section {
+  display: none;
+}
+
+.card:hover .img-section {
+  display: none;
+  transition: 0.4s;
+}
+
+.card:hover .info-section {
+  display: block;
+  transition: 0.4s;
 }
