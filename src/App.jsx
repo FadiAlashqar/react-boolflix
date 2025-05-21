@@ -45,6 +45,11 @@ function App() {
         <div className="container">
           <div className="row g-4 p-5">
             {results && results.map((result, index) => {
+
+              let rate = result.vote_average;
+
+              let roundRate = Math.round(Number(rate) / 2)
+
               return <div key={index} className="col-12 col-md-6 col-lg-4">
                 <div className="card">
                   <div className="card-img-top">
@@ -55,7 +60,14 @@ function App() {
                       <h4>Title : {result.title}</h4>
                       <h5>Original Title : {result.original_title}</h5>
                       <p>Language : {result.original_language} <span className={`fi fi-${languages[result.original_language] || result.original_language}`} /></p>
-                      <p>Rate : {result.vote_average}</p>
+                      <p>Rate : {
+                        [...Array(roundRate)].map((_, i) => {
+                          return <span key={`full-star${i}`}><i className="fa-solid fa-star"></i></span>
+                        })
+                      }{[...Array(5 - roundRate)].map((_, i) => {
+                        return <span key={`empty-star${i}`}><i className="fa-regular fa-star"></i></span>
+                      })}
+                      </p>
                     </div>
                   </div>
                 </div>
