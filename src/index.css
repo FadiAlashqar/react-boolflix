@@ -10,3 +10,9 @@ body {
   object-fit: cover;
   width: inherit;
 }
+
+.card {
+  color: white;
+  background-color: black;
+  border: 3px solid black;
+}
